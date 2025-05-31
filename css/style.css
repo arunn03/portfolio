@@ -420,7 +420,7 @@ nav {
 /* Projects Section */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
   gap: 30px;
 }
 
@@ -677,6 +677,12 @@ nav {
   }
 }
 
+@media (max-width: 380px) {
+  .contact-info {
+    font-size: 0.95rem;
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .hamburger {
@@ -684,6 +690,7 @@ nav {
   }
 
   .nav-menu {
+    padding-top: 30px;
     position: fixed;
     top: 80px;
     left: 0;
@@ -701,10 +708,7 @@ nav {
 
   .nav-links {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    gap: 40px;
+    gap: 10px;
   }
 
   .nav-links li {
@@ -721,9 +725,6 @@ nav {
   .nav-links a::after {
     bottom: -2px;
   }
-  /* .nav-links {
-    display: none;
-  } */
 
   .hero-content {
     grid-template-columns: 1fr;
@@ -735,7 +736,7 @@ nav {
   }
 
   .contact-content {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
   }
 
   .timeline::before {
