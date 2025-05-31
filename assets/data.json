@@ -1,0 +1,96 @@
+{
+  "personal": {
+    "name": "Arun",
+    "title": "Software Developer",
+    "description": "Passionate software developer with hands-on experience in building responsive web and mobile applications. I enjoy transforming core computer science principles into practical, user-friendly solutions. From solving 300+ LeetCode problems to interning at Akamai, I've built a strong foundation in both backend systems and modern frontend frameworks.",
+    "email": "arunsk1307@gmail.com",
+    "phone": "+91 86670 99336",
+    "location": "Chennai, IN"
+  },
+  "social": {
+    "github": "https://github.com/arunn03",
+    "linkedin": "https://linkedin.com/in/arunn03",
+    "leetcode": "https://leetcode.com/u/arunn03"
+  },
+  "skills": {
+    "Programming Languages": [
+      "Python",
+      "C++",
+      "Java",
+      "JavaScript",
+      "SQL",
+      "Shell Scripting"
+    ],
+    "Frontend": [
+      "React.js",
+      "Flutter",
+      "HTML5",
+      "CSS3",
+      "Tailwind CSS",
+      "Bootstrap"
+    ],
+    "Backend": ["Django", "Appwrite", "Firebase"],
+    "Databases": ["MongoDB", "PostgreSQL", "MySQL"],
+    "Cloud & DevOps": ["Docker", "Kubernetes", "Jenkins", "GitHub"],
+    "Miscellaneous": [
+      "Git",
+      "Figma",
+      "Postman",
+      "VS Code",
+      "Linux",
+      "Agile/Scrum"
+    ]
+  },
+  "projects": [
+    {
+      "title": "Code Assessment Platform",
+      "description": "A full-stack solution for teachers and students to manage the assignments. Features include user authentication, code editor, code execution and output for test cases, time limit constraints for code execution and identification of potential malpractices among students.",
+      "technologies": ["FastAPI", "React.js", "MongoDB", "Docker", "Redux"],
+      "github": "https://github.com/arunn03/code_assessment",
+      "featured": true
+    },
+    {
+      "title": "Course Outcome Attainment",
+      "description": "A full-stack application for college staff to track course outcome attainment. Features include extraction of handwritten marks from answer scripts, encryption and decryption of student marks, department-based isolation, visual analytics on course outcome attainment.",
+      "technologies": ["Django", "React.js", "Python", "Tensorflow", "MySQL"],
+      "github": "https://github.com/arunn03/co_attainment",
+      "featured": true
+    },
+    {
+      "title": "Twitter Clone",
+      "description": "A cross-platform twitter clone mobile application. Features include posting tweets, retweets, comments, likes, hashtags, user profile management and image & link handling.",
+      "technologies": ["Flutter", "Appwrite", "Riverpod", "Dart"],
+      "github": "https://github.com/arunn03/twitter_clone",
+      "featured": false
+    }
+  ],
+  "experience": [
+    {
+      "type": "internship",
+      "title": "Software Engineer Intern",
+      "company": "Tekmedia Software",
+      "location": "Coimbatore, IN",
+      "startDate": "2025-01",
+      "endDate": "2025-05",
+      "description": "Developed a cross-platform mobile prototype for a Central Monitoring System with live streams, real-time alarms, and playback. Integrated FCM and Appwrite for push notifications and built automated deployment pipelines."
+    },
+    {
+      "type": "internship",
+      "title": "Summer Intern",
+      "company": "Akamai Technologies Inc.",
+      "location": "Bengaluru, IN",
+      "startDate": "2024-06",
+      "endDate": "2024-08",
+      "description": "Developed full-stack features for a fintech platform. Worked with React, Node.js, and AWS to build secure financial applications."
+    },
+    {
+      "type": "under-graduate",
+      "title": "B.E. Computer Science and Engineering",
+      "company": "Coimbatore Institute of Technology",
+      "location": "Coimbatore, IN",
+      "startDate": "2021-09",
+      "endDate": "2025-05",
+      "description": "Built strong foundation in the field of Computer Science which includes Data Structures and Algorithms, Operating Systems, Computer Networks, Database Management System, Computer Architecture, etc."
+    }
+  ]
+}
