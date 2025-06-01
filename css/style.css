@@ -125,10 +125,11 @@ nav {
   color: var(--text-secondary);
   font-size: 24px;
   font-weight: 700;
-  /* background: var(--accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text; */
+}
+
+.logo a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .hamburger {
@@ -357,10 +358,8 @@ nav {
 }
 
 .section-title {
-  font-family: "Dancing Script", "Poppins", sans-serif;
   font-size: 3.5rem;
   font-weight: 700;
-  text-align: center;
   margin-bottom: 60px;
   background: var(--accent-gradient);
   -webkit-background-clip: text;
@@ -678,7 +677,7 @@ nav {
 }
 
 @media (max-width: 380px) {
-  .contact-info {
+  .contact-content {
     font-size: 0.95rem;
   }
 }
@@ -732,6 +731,10 @@ nav {
   }
 
   .hero-text h1 {
+    font-size: 2.5rem;
+  }
+
+  .section-title {
     font-size: 2.5rem;
   }
 
