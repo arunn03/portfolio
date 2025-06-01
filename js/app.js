@@ -1,4 +1,43 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Theme management
+  const themeToggle = document.getElementById("theme-toggle");
+  const html = document.documentElement;
+
+  // Initialize theme based on system preference
+  function initializeTheme() {
+    const darkModeMediaQuery = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    );
+    function handleThemeChange() {
+      const prefersDark = darkModeMediaQuery.matches;
+
+      if (prefersDark) {
+        html.setAttribute("data-theme", "dark");
+        updateThemeIcon("dark");
+      } else {
+        html.setAttribute("data-theme", "light");
+        updateThemeIcon("light");
+      }
+    }
+    handleThemeChange();
+    darkModeMediaQuery.addEventListener("change", handleThemeChange);
+  }
+
+  // Update theme toggle icon
+  function updateThemeIcon(theme) {
+    themeToggle.querySelector("i").className =
+      theme === "dark" ? "fas fa-sun" : "fas fa-moon";
+  }
+
+  // Toggle theme
+  themeToggle.addEventListener("click", () => {
+    const currentTheme = html.getAttribute("data-theme") || "light";
+    const newTheme = currentTheme === "light" ? "dark" : "light";
+
+    html.setAttribute("data-theme", newTheme);
+    updateThemeIcon(newTheme);
+  });
+
   // Toggle Mobile Menu
   const hamburger = document.querySelector(".hamburger");
   const navMenu = document.querySelector(".nav-menu");
@@ -73,19 +112,8 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("hero-title").textContent = personal.title;
         document.getElementById("hero-description").textContent =
           personal.description;
-        // document.getElementById("nav-logo").textContent =
-        //   personal.name.split(" ")[0];
-
-        // Avatar
-        // const profileAvatar = document.getElementById("profile-avatar");
-        // if (personal.avatar && personal.avatar.trim() !== "") {
-        //   profileAvatar.innerHTML = `<img src="${personal.avatar}" alt="${personal.name}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">`;
-        // } else {
-        //   profileAvatar.innerHTML = `<i class="fas fa-user"></i>`;
-        // }
 
         // Social links
-        // createSocialLinks(social, "social-links");
         createSocialLinks(social, "contact-social-links");
 
         // Skills
@@ -97,16 +125,16 @@ document.addEventListener("DOMContentLoaded", () => {
             const skillCategory = document.createElement("div");
             skillCategory.className = "skill-category";
             skillCategory.innerHTML = `
-                              <h3>${category}</h3>
-                              <div class="skills-list">
-                                  ${skillList
-                                    .map(
-                                      (skill) =>
-                                        `<span class="skill-tag">${skill}</span>`
-                                    )
-                                    .join("")}
-                              </div>
-                          `;
+                                <h3>${category}</h3>
+                                <div class="skills-list">
+                                    ${skillList
+                                      .map(
+                                        (skill) =>
+                                          `<span class="skill-tag">${skill}</span>`
+                                      )
+                                      .join("")}
+                                </div>
+                            `;
             skillsGrid.appendChild(skillCategory);
           }
         });
@@ -119,33 +147,33 @@ document.addEventListener("DOMContentLoaded", () => {
           const projectCard = document.createElement("div");
           projectCard.className = "project-card";
           projectCard.innerHTML = `
-                          <div class="project-content">
-                              <h3 class="project-title">${project.title}</h3>
-                              <p class="project-description">${
-                                project.description
-                              }</p>
-                              <div class="project-tech">
-                                  ${project.technologies
-                                    .map(
-                                      (tech) =>
-                                        `<span class="tech-tag">${tech}</span>`
-                                    )
-                                    .join("")}
-                              </div>
-                              <div class="project-links">
-                                  ${
-                                    project.github
-                                      ? `<a href="${project.github}" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Code</a>`
-                                      : ""
-                                  }
-                                  ${
-                                    project.live
-                                      ? `<a href="${project.live}" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo</a>`
-                                      : ""
-                                  }
-                              </div>
-                          </div>
-                      `;
+                            <div class="project-content">
+                                <h3 class="project-title">${project.title}</h3>
+                                <p class="project-description">${
+                                  project.description
+                                }</p>
+                                <div class="project-tech">
+                                    ${project.technologies
+                                      .map(
+                                        (tech) =>
+                                          `<span class="tech-tag">${tech}</span>`
+                                      )
+                                      .join("")}
+                                </div>
+                                <div class="project-links">
+                                    ${
+                                      project.github
+                                        ? `<a href="${project.github}" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Code</a>`
+                                        : ""
+                                    }
+                                    ${
+                                      project.live
+                                        ? `<a href="${project.live}" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo</a>`
+                                        : ""
+                                    }
+                                </div>
+                            </div>
+                        `;
           projectsGrid.appendChild(projectCard);
         });
 
@@ -157,88 +185,88 @@ document.addEventListener("DOMContentLoaded", () => {
           const timelineItem = document.createElement("div");
           timelineItem.className = "timeline-item";
           timelineItem.innerHTML = `
-                          <div class="timeline-dot"></div>
-                          <div class="timeline-content">
-                              <h3 class="timeline-title">${item.title}</h3>
-                              <div class="timeline-company">${
-                                item.company
-                              }</div>
-                              <div class="timeline-date">${formatDate(
-                                item.startDate
-                              )} - ${formatDate(item.endDate)}</div>
-                              <p class="timeline-description">${
-                                item.description
-                              }</p>
-                          </div>
-                      `;
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">${item.title}</h3>
+                                <div class="timeline-company">${
+                                  item.company
+                                }</div>
+                                <div class="timeline-date">${formatDate(
+                                  item.startDate
+                                )} - ${formatDate(item.endDate)}</div>
+                                <p class="timeline-description">${
+                                  item.description
+                                }</p>
+                            </div>
+                        `;
           timeline.appendChild(timelineItem);
         });
 
         // Contact Info
         const contactInfo = document.getElementById("contact-info");
         contactInfo.innerHTML = `
-                      <h3 style="margin-bottom: 30px; color: var(--accent-primary);">Contact Information</h3>
-                      ${
-                        personal.email
-                          ? `
-                      <div class="contact-item">
-                          <div class="contact-icon">
-                              <i class="fas fa-envelope"></i>
-                          </div>
-                          <div class="contact-details">
-                              <h4>Email</h4>
-                              <p><a href="mailto:${personal.email}" style="color: var(--text-secondary); text-decoration: none;">${personal.email}</a></p>
-                          </div>
-                      </div>
-                      `
-                          : ""
-                      }
-                      ${
-                        personal.phone
-                          ? `
-                      <div class="contact-item">
-                          <div class="contact-icon">
-                              <i class="fas fa-phone"></i>
-                          </div>
-                          <div class="contact-details">
-                              <h4>Phone</h4>
-                              <p><a href="tel:${personal.phone}" style="color: var(--text-secondary); text-decoration: none;">${personal.phone}</a></p>
-                          </div>
-                      </div>
-                      `
-                          : ""
-                      }
-                      ${
-                        personal.location
-                          ? `
-                      <div class="contact-item">
-                          <div class="contact-icon">
-                              <i class="fas fa-map-marker-alt"></i>
-                          </div>
-                          <div class="contact-details">
-                              <h4>Location</h4>
-                              <p>${personal.location}</p>
-                          </div>
-                      </div>
-                      `
-                          : ""
-                      }
-                      ${
-                        personal.website
-                          ? `
-                      <div class="contact-item">
-                          <div class="contact-icon">
-                              <i class="fas fa-globe"></i>
-                          </div>
-                          <div class="contact-details">
-                              <h4>Website</h4>
-                              <p><a href="${personal.website}" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); text-decoration: none;">${personal.website}</a></p>
-                          </div>
-                      </div>
-                      `
-                          : ""
-                      }
-                  `;
+                        <h3 style="margin-bottom: 30px; color: var(--accent-primary);">Contact Information</h3>
+                        ${
+                          personal.email
+                            ? `
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <p><a href="mailto:${personal.email}" style="color: var(--text-secondary); text-decoration: none;">${personal.email}</a></p>
+                            </div>
+                        </div>
+                        `
+                            : ""
+                        }
+                        ${
+                          personal.phone
+                            ? `
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Phone</h4>
+                                <p><a href="tel:${personal.phone}" style="color: var(--text-secondary); text-decoration: none;">${personal.phone}</a></p>
+                            </div>
+                        </div>
+                        `
+                            : ""
+                        }
+                        ${
+                          personal.location
+                            ? `
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Location</h4>
+                                <p>${personal.location}</p>
+                            </div>
+                        </div>
+                        `
+                            : ""
+                        }
+                        ${
+                          personal.website
+                            ? `
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Website</h4>
+                                <p><a href="${personal.website}" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); text-decoration: none;">${personal.website}</a></p>
+                            </div>
+                        </div>
+                        `
+                            : ""
+                        }
+                    `;
       }
 
       // Scroll animations
@@ -283,9 +311,9 @@ document.addEventListener("DOMContentLoaded", () => {
         window.addEventListener("scroll", () => {
           const nav = document.querySelector("nav");
           if (window.scrollY > 100) {
-            nav.style.background = "rgba(255, 255, 255, 0.5)";
+            nav.style.background = "var(--nav-bg-scroll)";
           } else {
-            nav.style.background = "rgba(255, 255, 255, 0.9)";
+            nav.style.background = "var(--nav-bg)";
           }
         });
       }
@@ -373,7 +401,6 @@ document.addEventListener("DOMContentLoaded", () => {
         document.addEventListener("mousemove", (e) => {
           const now = Date.now();
           if (now - lastTime > 50) {
-            // Throttle particle creation
             createParticle(e.clientX, e.clientY);
             lastTime = now;
           }
@@ -382,6 +409,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Initialize everything
       function init() {
+        initializeTheme();
         populatePortfolio();
 
         // Hide loading and show portfolio
